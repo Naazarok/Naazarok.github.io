@@ -4,9 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="js.js"></script>
+	<script>
+	let Click = 0;
+		this.ClickMe = functiom(){
+		Click++;
+		document.getElementById('game').innerHTML = Click;
+		}
+	</script>
 </head>
 <body>
-	<center><div id="game"></div></center>
+	<center><div id="game"></div>
+	<input type="button" value="clickMe" onClick="this.ClickMe()"></center>
 </body>
 </html>
