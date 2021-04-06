@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Title</title>
+		<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+		
+<style>
+body {background-color: #92a8d1;}
+canvas {background-color: #fff;}
+</style>
+	</head>
+	<body>
+		
+     <center><div><canvas id="canvas" width="800" height="600" style=""></canvas></div>
+	 
+	
+	const canvas = document.getElementById('canvas');<br>
+	const ctx = canvas.getContext('2d');<br>
+	canvas.width = 800;<br>
+	canvas.height = 600;<br>
+<br>
+	<br>
+	<br>
+	<br>
+			const Square = function(x1,y1,x2,y2,color = 'black'){<br>
+				//x1 начало рисунка по оси х,y1 начало рисунка по оси у<br>
+				  x2 конец  рисунка по оси х,y2 конец  рисунка по оси у,color цвет<BR>
+						ctx.fillStyle = color;<br>
+						ctx.fillRect(x1, y1, x2, y2)<br>
+					}<br>
+
+	
+	 let Main = function() {<br>
+
+	
+		new Square(1,1,122,122,'black')<br>
+		new Square(1,122,122,122,'red')<br>
+		
+		}	<br>
+			Main()<br>
+	canvas.addEventListener('mousedown', function(e) {<br>
+				x = e.offsetX;<br>
+				y = e.offsetY;<br>
+				new Square(x-5,y-5,10,10,'black')<br>
+				console.log(x,y)})<br>
+	 
+	 
+	 </center>
+		
+	<script src="canvas.js"></script>
+	<script>canvas.addEventListener('mousedown', function(e) {
+				x = e.offsetX;
+				y = e.offsetY;
+				new Square(x-5,y-5,10,10,'black')
+				console.log(x,y)})</script>
+</body>
+</html>
