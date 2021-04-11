@@ -11,7 +11,7 @@
         particleRadius      : 3,
         particleCount       : 150,
         particleMaxVelocity : 0.5,
-        lineLength          : 150,
+        lineLength          : 200,
         particleLife        : 6,
     };
 
