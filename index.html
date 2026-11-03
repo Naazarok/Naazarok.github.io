@@ -1,27 +1,77 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Title</title>
-		<meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
-		
-<style>
-body {background: rgb(17, 17, 19);}
-canvas {background-color: #fff;}
-</style>
-	</head>
-	<body>
-		
-     <center><div>
-	 <a href="/git/square/index.html">Квадрат</a>
-	 
-	 
-	 
-	 </div>
-	 
-	
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой виджет</title>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5; /* Цвет фона как в ВК */
+        }
+        .widget-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .card {
+            flex: 1;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+        }
+                .card img {
+            width: 100%;
+            aspect-ratio: 3 / 4; /* Делает карточки вертикальными (пропорция 3 к 4) */
+            object-fit: cover;   /* Заполняет блок без искажений */
+            display: block;
+        }
+        .card-title {
+            padding: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget-container">
+        <!-- Карточка 1 -->
+        <div class="card" onclick="openPost('https://vk.ru/wall-242894574_2')">
+            <img src="https://sun9-8.vkuserphoto.ru/s/v1/ig2/Xn9A9EgAwa-jD_naOeIOQcK2OzlhhBYybD2PQz1Ax1-CNtK6IybBquE0Q4vx7ciJS_i0fPlpxJ1Fsp-101q_sDPd.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,591x887&from=bu&u=RJ4VDaieit8huh94-M9Ft9Qr7OE_8DvbQsVAGGZfqqI&cs=591x0" alt="Обновление">
+            <div class="card-title">Обновление</div>
+        </div>
+        
+        <!-- Карточка 2 -->
+        <div class="card" onclick="openPost('https://vk.ru/wall-242894574_3')">
+            <img src="https://sun9-2.vkuserphoto.ru/s/v1/ig2/NP1Ik54sN-jS4ZQPRfYJGo21X18xqbiiWZkbMMwjZxXmLkzTycvx8Cj7y94WOPN1sUW__j6scq3eho911OU66zz-.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,591x887&from=bu&cs=591x0" alt="Создаешь контент?">
+            <div class="card-title">Создаешь контент?</div>
+        </div>
+        
+        <!-- Карточка 3 -->
+        <div class="card" onclick="openPost('https://vk.ru/wall-242894574_4')">
+            <img src="https://sun9-37.vkuserphoto.ru/s/v1/ig2/xPQtqjS3efRk-5CMyJzpiz7lK32ray3bqMtjGT0CRKoVRWd7hvfQmvNcvnJBiqkR8MlE883jll7_RcsrLjkAwiq7.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x539,480x719,540x809,592x887&from=bu&cs=592x0" alt="Выбери свою версию">
+            <div class="card-title">Выбери свою версию</div>
+        </div>
+    </div>
 
-	 
-	 </center>
-<script src="script.js"></script>	
+    <script>
+        // Инициализация VK Bridge
+        vkBridge.send('VKWebAppInit');
+
+        // Функция перехода по ссылке
+        function openPost(url) {
+            vkBridge.send('VKWebAppOpenLink', { url: url });
+        }
+    </script>
 </body>
 </html>
