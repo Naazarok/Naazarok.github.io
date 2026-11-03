@@ -72,6 +72,28 @@
         function openPost(url) {
             vkBridge.send('VKWebAppOpenLink', { url: url });
         }
+
+
+        // Функция для показа окна предпросмотра виджета
+function showWidgetPreview() {
+    // ВАЖНО: замените 54873593 на ID вашего сообщества
+    const groupId = 54873593; 
+
+    vkBridge.send('VKWebAppShowCommunityWidgetPreviewBox', {
+        group_id: groupId,
+        type: 'cover_list', // Тип виджета: список обложек
+        code: 'return { "title": "Приветствие", "rows": [] };' // Временный пустой код
+    }).then((data) => {
+        if (data.result) {
+            console.log('Экран предпросмотра показан');
+        }
+    }).catch((error) => {
+        console.error('Ошибка:', error);
+    });
+}
+
+// Вызываем функцию при загрузке страницы (или привяжите к кнопке)
+// showWidgetPreview(); 
     </script>
 </body>
 </html>
